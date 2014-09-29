@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+	<title>Socket.IO chat</title>
+	<style>
+		html, body {
+			padding:0;
+			height: 100%;
+			width: 100%;
+		}
+		textarea {
+			width: 100%;
+			height: 100%;
+			background:#fff;
+			border:none;
+		}
+
+	</style>
+</head>
+<body>
+<ul id="messages"></ul>
+<textarea id="note">
+</textarea>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+<script>
+	var socket = io();
+	$('#note').on('keyup', function () {
+		socket.emit('note_change', $('#note').val());
+		return false;
+	});
+	socket.on('note_change', function (msg) {
+		$('#note').val(msg);
+	});
+</script>
+</body>
+</html>
