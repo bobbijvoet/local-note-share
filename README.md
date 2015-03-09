@@ -1,4 +1,8 @@
-sharefest
+local-note-share
 =========
 
-Share texts via sockets 
+Share notes via sockets 
+
+Because copy paste between VM's did not work properly
+
+
